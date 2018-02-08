@@ -1,0 +1,54 @@
+#1.
+def times_tables():
+    lst = []
+    for i in range(10):
+        for j in range (10):
+            lst.append(i*j)
+    return lst
+
+times_tables() == [j*i for i in range(10) for j in range(10)]
+
+#2.
+
+lowercase = 'abcdefghijklmnopqrstuvwxyz'
+digits = '0123456789'
+
+answer = [a+b+c+d for a in lowercase for b in lowercase for c in digits for d in digits]
+
+correct_answer = answer 
+
+#3
+purchase_1 = pd.Series({'Name': 'Chris',
+                        'Item Purchased': 'Dog Food',
+                        'Cost': 22.50})
+purchase_2 = pd.Series({'Name': 'Kevyn',
+                        'Item Purchased': 'Kitty Litter',
+                        'Cost': 2.50})
+purchase_3 = pd.Series({'Name': 'Vinod',
+                        'Item Purchased': 'Bird Seed',
+                        'Cost': 5.00})
+
+df = pd.DataFrame([purchase_1, purchase_2, purchase_3], index=['Store 1', 'Store 1', 'Store 2'])
+
+
+df = df.set_index([df.index, 'Name'])
+df.index.names = ['Location', 'Name']
+df = df.append(pd.Series(data={'Cost': 3.00, 'Item Purchased': 'Kitty Food'}, name=('Store 2', 'Kevyn')))
+df
+
+
+
+##############------------ notes Scala spark Install----------------##########
+
+https://github.com/jupyter-scala/jupyter-scala
+https://medium.com/ibm-watson-data-lab/bridging-the-gap-between-python-and-scala-jupyter-notebooks-2d254b0445e2
+#####https://github.com/ibm-watson-data-lab/pixiedust
+##https://ibm-watson-data-lab.github.io/pixiedust/install.html
+###https://github.com/ibm-watson-data-lab/pixiedust/blob/master/notebook/Intro%20to%20PixieDust%20Spark%202.x.ipynb
+###https://github.com/ibm-watson-data-lab/pixiedust/blob/master/notebook/GraphFrame%20with%20Pixiedust.ipynb
+##https://medium.com/@josemarcialportilla/installing-scala-and-spark-on-ubuntu-5665ee4b62b1
+###https://www.packtpub.com/mapt/book/big_data_and_business_intelligence/9781785884870/9/ch09lvl1sec65/installing-the-scala-kernel
+##
+
+
+
